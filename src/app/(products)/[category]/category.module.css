@@ -65,7 +65,7 @@
 
 }
 .textContainer:hover{
-    background-color:rgba(252, 7, 7, 0.473);
+    background-color:rgba(61, 47, 47, 0.473);
 }
 
 
@@ -76,11 +76,11 @@
     }
 }
 @media (max-width:480px){
-    .container{
+     .container{
         width: 70%;
-    }
-    .item{
+     }
+     .item{
         width: 50%;
         height: 290px;
-    }
+     }
 }
