@@ -2,6 +2,7 @@ import { AddShoppingCart,  CheckOutlined,  CurrencyPound,  FavoriteBorder } from
 import React from 'react'
 import styles from "./subCategory.module.css"
 import Image from 'next/image'
+import Link from 'next/link'
 export default function SubCategory({params}:{params:{category:string,subCategory:string}}) {
 //   {params.category}
 // {params.subCategory}
@@ -15,7 +16,8 @@ export default function SubCategory({params}:{params:{category:string,subCategor
       <div className={styles.container}>
 
         {/* item Replicate */}
-        <div className={styles.item}>
+        
+        <Link href={`/${params.category}/${params.subCategory}/123`} className={styles.item}>
 
           <div className={styles.top}>
 
@@ -41,7 +43,8 @@ export default function SubCategory({params}:{params:{category:string,subCategor
             </div>
           </div>
        
-        </div>
+        </Link>
+        
         <div className={styles.item}>
 
           <div className={styles.top}>

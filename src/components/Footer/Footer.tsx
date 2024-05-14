@@ -34,8 +34,8 @@ export default function Footer() {
             <Link href="/kids" className={styles.listItem}>Kids</Link>
             <Link href="/cart" className={styles.listItem}>Cart</Link>
             <Link href="/user/order" className={styles.listItem}>Order Tracking</Link>
-            <Link href="/user" className={styles.listItem}>Profile</Link>
-            <Link href="/user/order" className={styles.listItem}>Order Tracking</Link>
+            <Link href="/careers" className={styles.listItem}>Careers</Link>
+            <Link href="/blogs" className={styles.listItem}>Blogs</Link>
             <Link href="/" className={styles.listItem}>Profile</Link>
           </ul>
           </div>

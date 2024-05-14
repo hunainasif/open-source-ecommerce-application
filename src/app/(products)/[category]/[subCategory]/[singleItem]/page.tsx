@@ -1,65 +1,112 @@
 "use client"
 import React, { useState } from 'react'
 import styles from "./singleItem.module.css"
-import { CheckCircleOutline, CurrencyPound, FavoriteBorder, ShoppingCart  } from '@mui/icons-material'
+import { ArrowBackIos, ArrowForwardIos, CheckCircleOutline, CurrencyPound, FavoriteBorder, ShoppingCart  } from '@mui/icons-material'
+import Image from 'next/image'
+import Link from 'next/link'
 export default function SingleItem({params}:{params:{category:string,subCategory:string,singleItem:string}}) {
   // {params.category}
   // {params.subCategory}
   // {params.singleItem}
 
-  const [index,setIndex]=useState(0)
+  const sliderImags=[
+    "/img/men_bottom.jpg",
+    "/img/men_jacket.jpg",
+    "/img/men_shoes.jpg"
+  ]
+
+  const [index,setIndex]=useState(1)
+
+  const [slideNumber,setSlideNumber]=useState(0)
+  console.log(sliderImags)
+
+  const handleSlide = (direction:string) => {
+    if (direction === "left") {
+      setSlideNumber((prev) => prev >0 ? prev -1 :prev);
+    }
+    if (direction === "right") {
+      setSlideNumber((prev) =>prev < 2 ? prev +1 :prev);
+    }
+  };
   return (
     <div className={styles.singleItem}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
+          {/* Left Section of The Page */}
           <div className={styles.left}>
-            <h1>Hey i am Left</h1>
+           <div className={styles.leftContainer}>
+          
+            <ArrowBackIos className={styles.arrow} style={{left:"0"}} onClick={()=>{handleSlide("left")}}/>
+            
+            <div className={styles.imageWrapper}>
+             {sliderImags.map((item,id)=>(
+              <div className={styles.imageContainer} style={{ transform: `translateX(${-100 * slideNumber}%)` }} key={id}>
+                <img  src={item} alt="" className={styles.img}   />
+              </div>
+             )) }
+            </div>
+             
+            <ArrowForwardIos className={styles.arrow} style={{right:"0"}} onClick={()=>{handleSlide("right")}}/>
+            
+           </div>
           </div>
-          <div className={styles.right}>
-             <div className={styles.top}>
-              <span className="title">Timberland Ankle Classic Boots</span>
-              <span className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere expedita aperiam tempora, temporibus quod amet incidunt. Aut molestias perferendis consequatur sapiente quas. Officiis temporibus porro consequatur facere inventore, sint ducimus?</span>
-              
-              <FavoriteBorder/>
-             </div>
-             <div className="center">
-              <div className="money">
 
-              <CurrencyPound/>
-              <span className="price">129</span>
-              <span>.00</span>
+          {/* Right Section of the Page */}
+          <div className={styles.right}>
+            
+
+            {/* Top Section of the Page that contain Description Favourite Icon */}
+
+             <div className={styles.top}>
+              <div className={styles.description}>
+
+            
+              <span className={styles.title}>Timberland Ankle Classic Boots</span>
+              <span className={styles.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere expedita aperiam tempora, temporibus quod amet incidunt. Aut molestias perferendis consequatur sapiente quas. Officiis Aut molestias perferendis consequatur sapiente quas. Officiistemporibus porro consequatur facere inventore, sint ducimus?</span>
+              </div>
+              
+              <FavoriteBorder className={styles.favIcon}/>
+             </div>
+
+             {/* Center Of The RIght That contain Money Matters */}
+             <div className={styles.center}> 
+              <div className={styles.money}>
+                 <CurrencyPound className={styles.currencyIcon}/>
+                 <span className={styles.price}>129</span>
+                 <span>.00</span>
               </div>
 
-              <div className="sizes">
-                <select name="" id="">
-                  <option value="">X-SMALL</option>
-                  <option value="">SMALL</option>
-                  <option value="">Medium</option>
-                  <option value="">LARGE</option>
-                  <option value="">2XL</option>
-                  <option value="">3XL</option>
+              <div className={styles.sizes}>
+                <select className={styles.selectSize} name="" id="">
+                  <option className={styles.optionSize} value="">X-SMALL</option>
+                  <option className={styles.optionSize} value="">SMALL</option>
+                  <option className={styles.optionSize} value="">Medium</option>
+                  <option className={styles.optionSize} value="">LARGE</option>
+                  <option className={styles.optionSize} value="">2XL</option>
+                  <option className={styles.optionSize} value="">3XL</option>
                 </select>
               </div>
-              <div className="quantity">
-              <button onClick={() => { setIndex(prev => prev !== 0 ? prev - 1 : prev) }}> - </button>
+              <div className={styles.quantity}>
+              <button className={styles.quantityBtn} onClick={() => { setIndex(prev => prev !== 1 ? prev - 1 : prev) }}> - </button>
 
                 {index}
-                <button onClick={()=>{setIndex(prev=>prev+1)}}>+</button>
+                <button className={styles.quantityBtn} onClick={()=>{setIndex(prev=>prev+1)}}>+</button>
               </div>
 
               
              </div>
 
-             <div className="bottom">
-               <div className="cart">
-                <ShoppingCart/>
+             {/* bottom of the RIght That COntain Checkout Buttons */}
+             <div className={styles.bottom}>
+               <Link href="/cart" className={styles.cart}>
+                <ShoppingCart className={styles.finalIcons}/>
                 Add To Cart
-               </div>
+               </Link>
 
-               <div className="checkOut">
-                <CheckCircleOutline/>
+               <Link href="/checkout" className={styles.checkOut}>
+                <CheckCircleOutline className={styles.finalIcons}/>
                 CheckOut
-               </div>
+               </Link>
              </div>
           </div>
         </div>
