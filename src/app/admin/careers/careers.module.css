@@ -1,0 +1,11 @@
+.careers{
+    flex: 7;
+    background-color: red;
+    overflow-y: scroll;
+    height: calc(100vh - 56px );
+}
+.careers::-webkit-scrollbar{
+
+    display: none;
+     
+}

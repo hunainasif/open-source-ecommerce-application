@@ -1,0 +1,132 @@
+.products{
+    flex:7;
+    
+    height:calc(100vh - 56px );
+    overflow-y: scroll;
+}
+.products::-webkit-scrollbar{
+    display: none;
+}
+.container{
+    width: 90%;
+   
+   margin:auto;
+}
+.searchContainer{
+     
+}
+.top{
+    display: flex;
+    background-color: var(--primary);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    
+}
+ .addProductBtn{
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: var(--secondary);
+    color: var(--primary);
+    padding: 10px;
+    cursor: pointer;
+
+ }
+.heading{
+    text-align: center;
+    padding: 20px 0px;
+    color: var(--primary);
+}
+.searchHeading{
+    padding: 10px 10px;
+    color: var(--secondary);
+
+}
+
+.bottom{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin:10px auto;
+    height: 50px;
+}
+.searchText{
+    width: 80%;
+    height: 100%;
+    padding: 0px 20px;
+    font-size: 20px;
+    border: none;
+}
+
+.searchText:focus{
+    outline: none;
+}
+.searchIcon{
+    width: 20%;
+    cursor: pointer;
+    font-size: 30px;
+    background-color: var(--primary);
+    height: 100%;
+    color: var(--secondary);
+}
+.tableContainer{
+    width: 100%;
+    height:calc(100vh - 56px);
+    position:relative;
+    top:56px;
+    background-color: var(--secondary);
+    margin:20px auto;
+    overflow-y: scroll;
+}
+.tableContainer::-webkit-scrollbar{
+    width: 9px;
+}
+.tableContainer::-webkit-scrollbar-track{
+    background-color: var(--primary);
+}
+.tableContainer::-webkit-scrollbar-thumb{
+     background-color: var(--secondary);
+}
+
+.table{
+    width: 100%;
+   
+
+}
+.table thead{
+     
+    height: 60px;
+}
+.table thead tr th{
+background-color:var(--primary);
+color: var(--secondary);
+width: calc(100%/3);
+padding: 10px;
+text-align: center;
+
+}
+ 
+.table tbody tr:nth-child(even){
+    background-color: lightgray;
+}
+ 
+.table tbody  td{
+    text-align: center;
+    padding:0px 2px;
+}
+.actionDelete{
+    color: red;
+    cursor: pointer;
+}
+.actionView{
+    color: gray;
+}
+.actionEdit{
+    color: green;
+}

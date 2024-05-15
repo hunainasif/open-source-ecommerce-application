@@ -1,0 +1,52 @@
+.sideBar{
+    flex:2;
+    background-color:var(--primary);
+    height:calc(100vh - 56px);
+    overflow-y: scroll;
+}
+.sideBar::-webkit-scrollbar{
+    width: 5px;
+}
+.sideBar::-webkit-scrollbar-track{
+  
+    background-color: var(--primary);
+}
+.sideBar::-webkit-scrollbar-thumb{
+    background-color: var(--secondary);
+     
+}
+
+
+.container{
+    width: 90%;
+    padding: 20px 0px;
+    /* background-color: pink; */
+    margin: auto;
+
+}
+.list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.listItem{
+    display:flex ;
+     padding-left: 10px;
+    margin-bottom: 3px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    cursor: pointer;
+    color: var(--secondary);
+
+    
+
+}
+.listItemIcon{
+    font-size: 30px;
+
+}
+.listItemText{
+    font-size: 20px;
+}

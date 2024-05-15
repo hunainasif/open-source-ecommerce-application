@@ -1,0 +1,7 @@
+.layout{
+    display: flex;
+}
+.admin{
+    flex:7;
+    background-color: orange;
+}
