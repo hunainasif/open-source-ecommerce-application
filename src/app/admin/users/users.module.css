@@ -1,4 +1,112 @@
 .users{
     flex:7;
-    background-color: crimson;
+    /* background-color: crimson; */
+    height: calc(100vh - 56px);
+    width: 100%;
+    overflow-y: scroll;
+}
+.users::-webkit-scrollbar{
+     width: 4px; 
+
+}
+.users::-webkit-scrollbar-track{
+     background-color: Var(--primary);
+
+}
+.users::-webkit-scrollbar-thumb{
+     background-color: var(--secondary);
+
+}
+
+.searchContainer{
+     
+}
+.top{
+    display: flex;
+    background-color: var(--primary);
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+  
+ 
+.searchHeading{
+    text-align: center;
+    padding: 20px 0px;
+    color: var(--primary);
+    width: 100%;
+    background-color: var(--secondary);
+
+}
+
+.bottom{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin:10px auto;
+    height: 50px;
+}
+.searchText{
+    width: 80%;
+    height: 100%;
+    padding: 0px 20px;
+    font-size: 20px;
+    border: none;
+}
+
+.searchText:focus{
+    outline: none;
+}
+.searchIcon{
+    width: 20%;
+    cursor: pointer;
+    font-size: 30px;
+    background-color: var(--primary);
+    height: 100%;
+    color: var(--secondary);
+}
+.container{
+    width: 80%;
+     
+    /* background-color: orange; */
+    margin: auto;
+}
+.table{
+    width: 100%;
+     
+}
+
+.table thead tr th{
+    background-color:var(--primary);
+    color: var(--secondary);
+    width: calc(100%/4);
+    height: 40px;
+}
+.table tbody tr td{
+    /* background-color:rgb(133, 26, 26); */
+    height: 40px;
+    text-align: center;
+
+}
+.table tbody{
+    background-color:var(--secondary);
+    color:var(--primary);
+}
+.actions{
+    width: 100%;
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.actionDelete{
+    color: red;
+    cursor: pointer;
+}
+.actionView{
+    color: gray;
 }
