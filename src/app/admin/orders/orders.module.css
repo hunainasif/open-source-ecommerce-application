@@ -1,4 +1,91 @@
 .orders{
     flex:7;
-    background-color: magenta;
+    /* background-color: magenta; */
+    height:calc(100vh - 56px);
+    overflow-y:scroll ;
+}
+.orders::-webkit-scrollbar{
+     width: 4px;
+}
+.orders::-webkit-scrollbar-track{
+    background-color: var(--secondary);
+  
+}
+.orders::-webkit-scrollbar-thumb{
+    background-color:  var(--primary);
+
+}
+
+.container{
+    width: 90%;
+    /* background-color: red; */
+    margin: auto;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+     margin-bottom: 20px;
+}
+.heading{
+    font-size: 30px;
+    padding: 20px;
+    color: var(--primary);
+}
+.searchContainer{
+    width:80%;
+    /* background-color: palevioletred; */
+    display: flex;
+}
+.searchContainer input{
+    width: 90%;
+    /* background-color: yellow; */
+    padding: 20px;
+    border: none;
+}
+.searchContainer input:focus{
+     outline: none;
+}
+.searchButton{
+    width: 10%;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+     
+}
+.searchIcon{
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--secondary);
+     
+}
+
+.table{
+    /* background-color: yellow; */
+    width: 100%;
+}
+.table tr th{
+    width: calc(100%/7);
+    background-color:var(--primary);
+    color: var(--secondary);
+    padding: 10px;
+}
+.table tbody{
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+.table tr td{ 
+    text-align: center;
+    padding: 10px;
+}
+.table tr:nth-child(even){ 
+     background-color: rgb(206, 197, 204);
+}
+.nextButton{
+    padding: 10px;
+    border: none;
+    color: var(--secondary);
+    background-color: var(--primary);
+    border-radius: 5px 0px 5px 0px;
+    cursor: pointer;
 }
