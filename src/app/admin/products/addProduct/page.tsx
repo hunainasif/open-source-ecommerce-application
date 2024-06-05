@@ -120,28 +120,28 @@ import { useState ,ChangeEvent,useRef} from "react"
   
   return (
     <div className={styles.addProduct}>
-         <div className="container">
-          <form action="" onSubmit={handleCLick}>
+         <div className={styles.container}>
+          <form className={styles.form} action="" onSubmit={handleCLick}>
 
             {/* Title of the Product */}
-            <div className="form_control">
+            <div className={styles.form_control}>
               <label htmlFor="">Title</label>
-              <input type="text" name="title" onChange={(e)=>{handleChange(e)}} value={credentials.title} id="" />
+              <input className={styles.inputElements} type="text" name="title" onChange={(e)=>{handleChange(e)}} value={credentials.title} id="" />
             </div>
 
             {/* Description of the Product */}
-            <div className="form_control">
+            <div className={styles.form_control}>
               <label htmlFor="">Description</label>
-              <input type="text" name="description" onChange={(e)=>{handleChange(e)}} value={credentials.description} id="" />
+              <input className={styles.inputElements} type="text" name="description" onChange={(e)=>{handleChange(e)}} value={credentials.description} id="" />
             </div>
             {/* Price of the Product */}
-            <div className="form_control">
+            <div className={styles.form_control}>
               <label htmlFor="">Price</label>
-              <input type="number" name="price" onChange={(e)=>{handleChange(e)}} value={credentials.price} id="" />
+              <input className={styles.inputElements} type="number" name="price" onChange={(e)=>{handleChange(e)}} value={credentials.price} id="" />
             </div>
              {/* Category of the Product */}
 
-             <div className="form_control">
+             <div className={styles.form_control}>
               <label htmlFor="">Category</label>
               <select name="category" value={credentials.category} onChange={(e)=>{handleChange(e)}} id="">
                 <option disabled value="">Select the Category</option>
@@ -151,7 +151,7 @@ import { useState ,ChangeEvent,useRef} from "react"
               </select>
              </div>
              {/* Sub Category */}
-             <div className="form_control">
+             <div className={styles.form_control}>
               <label htmlFor="">SubCategory</label>
               <select name="subCategory" value={credentials.subCategory} onChange={(e)=>{handleChange(e)}} id="">
                 <option disabled value="">Select the SubCategory</option>
@@ -165,29 +165,29 @@ import { useState ,ChangeEvent,useRef} from "react"
              </div>
 
              {/* Sizes */}
-             <div className="form_control">
+             <div className={styles.form_control}>
               <label htmlFor="">Available Sizes</label>
-              <div className="singleSize">
+              <div className={styles.singleSize}>
                  <input type="checkbox" name="sizes" value="small" id="small" onChange={(e)=>{handleSizes(e)}} />
                  <label htmlFor="small">Small</label>
               </div>
-              <div className="singleSize">
+              <div className={styles.singleSize}>
                  <input type="checkbox" name="sizes" value="medium" id="medium" onChange={(e)=>{handleSizes(e)}} />
                  <label htmlFor="medium">Medium</label>
               </div>
-              <div className="singleSize">
+              <div className={styles.singleSize}>
                  <input type="checkbox" name="sizes" value="large" id="large" onChange={(e)=>{handleSizes(e)}} />
                  <label htmlFor="large">Large</label>
               </div>
-              <div className="singleSize">
+              <div className={styles.singleSize}>
                  <input type="checkbox" name="sizes" value="xl" id="xl" onChange={(e)=>{handleSizes(e)}} />
                  <label htmlFor="xl">XL</label>
               </div>
-              <div className="singleSize">
+              <div className={styles.singleSize}>
                  <input type="checkbox" name="sizes" value="2xl" id="2xl" onChange={(e)=>{handleSizes(e)}} />
                  <label htmlFor="2xl">2XL</label>
               </div>
-              <div className="singleSize">
+              <div className={styles.singleSize}>
                  <input type="checkbox" name="sizes" value="3xl" id="3xl" onChange={(e)=>{handleSizes(e)}} />
                  <label htmlFor="3xl">3XL</label>
               </div>
@@ -195,7 +195,7 @@ import { useState ,ChangeEvent,useRef} from "react"
              </div>
 
              {/* Images */}
-             <div className="form_control">
+             <div className={styles.form_control}>
             <input
               type="file"
               name="images"
@@ -216,7 +216,7 @@ import { useState ,ChangeEvent,useRef} from "react"
             />
           </div>
 
-             <button type="submit">Submit</button>
+             <button className={styles.submitButton} type="submit">Submit</button>
           </form>
          </div>
       

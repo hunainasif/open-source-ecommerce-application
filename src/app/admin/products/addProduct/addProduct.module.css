@@ -1,4 +1,55 @@
 .addProduct{
     flex: 7;
-    background-color: red;
+    /* background-color: red; */
+}
+.container{
+    width: 90%;
+    /* background-color: yellow; */
+    margin: auto;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form_control{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.form_control label{
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.form_control select{
+    width: 250px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+.inputElements{
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    font-size: 20px;
+}
+ 
+.singleSize{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+.submitButton{
+    width: 200px;
+    height: 30px;
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-size: 18px;
+    cursor: pointer;
 }

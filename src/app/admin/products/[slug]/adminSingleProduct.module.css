@@ -1,0 +1,106 @@
+.adminSingleProduct{
+    flex:7;
+    /* background-color: red; */
+    height: calc(100vh - 56px);
+    overflow-y: scroll;
+}
+.adminSingleProduct::-webkit-scrollbar{
+    width: 9px;
+
+}
+.adminSingleProduct::-webkit-scrollbar-track{
+   background-color: var(--primary);
+
+}
+.adminSingleProduct::-webkit-scrollbar-thumb{
+   background-color: var(--secondary);
+
+}
+.mainHeading{
+    text-align: center;
+    color: var(--primary);
+    padding-top: 7px;
+
+}
+.form{
+    width: 80%;
+     
+    /* background-color: yellow; */
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form_control{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.form_control label{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.inputElements{
+    height: 30px;
+    padding: 20px;
+    width: 300px;
+    font-size: 18px;
+
+}
+.form_control select{
+    width: 100px;
+    padding: 10px;
+    border: none;
+}
+.form_control select:focus{
+    outline: none;
+}
+.form_control option{
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+    border: none;
+}
+.checkItem{
+    width: 20px;
+    height: 20px;
+}
+ 
+.imgContainer{
+    width: 90%;
+    height: 200px;
+    display: flex;
+    gap: 10px;
+
+}
+.img{
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30%;
+    border: 1px solid var(--primary);
+}
+.updateButton{
+    width: 200px;
+    height: 40px;
+    color: var(--secondary);
+    background-color: var(--primary);
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    
+}
+.deleteButton{
+    width: 200px;
+    height: 40px;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    background-color: var(--secondary);
+    font-size: 20px;
+    
+    cursor: pointer;
+}
