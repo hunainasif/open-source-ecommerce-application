@@ -15,6 +15,15 @@ const UserSchema=new mongoose.Schema({
     password:{
         type:String
     },
+    orders:{
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:"order"
+    },
+    favouriteItems:{
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:"product"
+
+    },
     isAdmin:{
         type:Boolean,
         default:false

@@ -1,0 +1,236 @@
+.cart{
+    width: 100%;
+    height: calc(100vh - 56px);
+    /* background-color: red; */
+}
+.container{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    /* background-color: pink; */
+    display: flex;
+}
+
+.heading{
+    text-align: center;
+    height: 10%;
+    padding: 10px;
+    color: var(--primary);
+}
+.left{
+    /* background-color: orange; */
+    flex: 4;
+    overflow-y: scroll;
+}
+
+.left::-webkit-scrollbar{
+    width: 7px;
+    
+
+}
+.left::-webkit-scrollbar-track{
+   background-color: var(--primary);
+    
+
+}
+.left::-webkit-scrollbar-thumb{
+   background-color: var(--secondary);
+    
+
+}
+
+.singleItem{
+    background-color:var(--secondary);
+    width: 90%;
+    margin: auto;
+    margin-top: 13px;
+    display: flex;
+    height: 180px;
+    padding: 14px;
+}
+.itemLeft{
+    /* background-color: aqua; */
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgItem{
+    width: 70%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 20%;
+    
+}
+.itemCenter{
+    /* background-color: purple; */
+    flex:4;
+    display: flex;
+     
+}
+.itemCenterLeft{
+    display: flex;
+    flex-direction: column;
+    /* background-color: teal; */
+    flex: 3;
+    justify-content: space-between;
+}
+.itemValues{
+    /* background-color: indianred; */
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 10px;
+    padding-left: 10px;
+    color: var(--primary);
+}
+.itemTitle{
+    font-size: 20px;
+    font-weight: 500;
+}
+.itemPrice{
+    font-weight: 800;
+}
+.actionButtons{
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.favourite{
+    display: flex;
+    width: 110px;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--primary);
+    color: var(--secondary);
+    padding: 10px;
+ 
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+}
+.delete{
+    display: flex;
+    width: 90px;
+    align-items: center;
+    justify-content: center;
+     color: var(--primary);
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid  var(--primary);
+
+}
+.itemCenterRight{
+    /* background-color: crimson; */
+    flex:2;
+}
+.quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 10px;
+}
+.itemQuantity{
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary);
+    padding: 10px;
+    border-radius: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quantityButton{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+.itemRight{
+    /* background-color: burlywood; */
+    flex:1;
+    display: flex;
+    flex-direction: column;
+}
+.itemTotal{
+    text-align: center;
+    padding: 10px;
+
+}
+.itemTotalPrice{
+     background-color: var(--secondary);
+    text-align: center;
+     
+}
+
+.right{
+    /* background-color: yellow; */
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    border: 1px solid var(--primary);
+    margin-left: 10px;
+}
+.rightWrapper{
+    /* background-color: red; */
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightTop{
+    /* background-color: teal; */
+    flex: 2;
+}
+.summary{
+    text-align: center;
+    padding-top: 20px;
+    color: var(--primary);
+    font-size: 30px;
+    font-weight: 200;
+}
+.rightCenter{
+    /* background-color: lime; */
+    flex: 6;
+    padding: 10px;
+}
+.values{
+    display: flex;
+    justify-content: space-between;
+    padding:8px 0px ;
+    color: var(--primary);
+
+}
+.endingLine{
+     height: 10px;
+     background-color: red;
+}
+ 
+.rightBottom{
+    /* background-color: khaki; */
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkOutButton{
+    width: 200px;
+    height: 30px;
+    background-color: teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    padding: 10px;
+}
