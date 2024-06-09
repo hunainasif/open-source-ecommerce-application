@@ -1,20 +1,48 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import styles from "./adminSingleProduct.module.css"
 
 
 
-export default function SingleProduct() {
+export default function SingleProduct({params}:{params:{slug:string}}) {
+
+
+  let [productItem,setProductItem]=useState("")
+
+  let productId=params.slug
+  console.log(productId)
+
+  useEffect(()=>{
+
+    let getProduct=async()=>{
+      try {
+        let response=await fetch(`/api/products/${"66642226e0a776e6ed307152"}`,{
+          "method":"GET"
+        })
+
+        let data=await response.json()
+
+        setProductItem(data.product)
+        console.log(data)
+      } catch (error) {
+        throw new Error("Error in admin Getting Single Product")
+      }
+    
+    } 
+    getProduct()
+
+  },[])
   return (
     <div className={styles.adminSingleProduct}>
       <h1 className={styles.mainHeading}>Product Information</h1>
        <div className={styles.form}>
         <div className={styles.form_control}>
           <label htmlFor="">Title</label>
-          <input className={styles.inputElements} type="text" name="" value="Hey" id="" />
+          <input className={styles.inputElements} type="text" name="" value={productItem.title} id="" />
         </div>
         <div className={styles.form_control}>
           <label htmlFor="">Description</label>
-           <textarea className={styles.inputElements} name="" value="hey I am The Text Area" id=""></textarea>
+           <textarea className={styles.inputElements} name="" value={productItem.description} id=""></textarea>
         </div>
         <div className={styles.form_control}>
           <label htmlFor="">Category</label>

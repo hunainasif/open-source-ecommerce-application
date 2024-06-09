@@ -1,13 +1,14 @@
 import Product from "@/models/Product";
 import connectToDb from "@/utils/db";
 import { writeFile } from "fs/promises";
-import { NextRequest, NextResponse } from "next/server";
+ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
+import { URL } from "url";
 
 
 
 
-
+// add Product
 export const POST=async(request:NextRequest,response:NextResponse)=>{
     try {
 
@@ -78,3 +79,51 @@ export const POST=async(request:NextRequest,response:NextResponse)=>{
         
     }
 }
+
+
+// get Products
+
+
+export const GET=async(request:NextRequest,response:NextResponse)=>{
+  try {
+    await connectToDb()
+
+    // Make Url Vairable to get Category & subCategory from Search Params
+    let url=new URL(request.url)
+    const searchParams=new URLSearchParams(url.searchParams)
+    // console.log(searchParams.get("category"))
+    // console.log(searchParams.get("subCategory"))
+
+    let category=searchParams.get("category")
+    let subCategory=searchParams.get("subCategory")
+
+    // getProduct By Category
+    if(category && !subCategory){
+      let categoryProduct=await Product.aggregate([
+        {$match:{category}}
+      ])
+      return NextResponse.json({categoryProduct},{status:200})
+    }
+  // getProduct By category && subCategory
+    if(category && subCategory){
+      let subCategoryProduct=await Product.aggregate([
+        {$match:{$and:[{category,subCategory}]}}
+      ])
+     
+      console.log(subCategoryProduct)
+      console.log("Api Hit")
+
+      return NextResponse.json({subCategoryProduct},{status:200})
+    }
+  
+  
+    let products=await Product.find()
+    return NextResponse.json({products},{status:200})
+    
+  } catch (error) {
+    return NextResponse.json({error},{status:500})
+    
+  }
+
+}
+

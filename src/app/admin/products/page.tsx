@@ -1,8 +1,35 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import styles from ".//products.module.css"
 import { Category, Delete, Edit, Search, Visibility } from '@mui/icons-material'
 import Link from 'next/link'
 export default function Products() {
+
+
+
+  let [products,setProducts]=useState([])
+
+
+  useEffect(()=>{
+
+    const getProducts=async()=>{
+
+      try {
+        let data=await fetch(`http://localhost:3000/api/products`,{
+          "method":"GET"
+        })
+        let response=await data.json()
+        console.log(response.products)
+        setProducts(response.products)
+       } catch (error) {
+        throw new Error("admin Get Products Error")
+      }
+     
+    }
+
+    getProducts()
+
+  },[])
   return (
     <div className={styles.products}>
       <div className={styles.container}>
@@ -38,241 +65,31 @@ export default function Products() {
               </tr>
             </thead>
             <tbody>
-              <tr className={styles.tr}>
-                <td >090078601</td>
-                <td >Timeberland Ankle Classic Boots</td>
-                <td >129</td>
-                <td >small,medium,large</td>
-                <td >Men</td>
-                <td >Shirts</td>
-                 
-                <td>
-                  <Delete className={styles.actionDelete}/>
-                  <Visibility className={styles.actionView}/>
-                  <Edit className={styles.actionEdit}/>
-                </td>
-                <td>
-                <Delete className={styles.actionDelete}/>
-                  <Visibility className={styles.actionView}/>
-                  <Edit className={styles.actionEdit}/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
-              <tr>
-                <td>090078601</td>
-                <td>Timeberland Ankle Classic Boots</td>
-                <td>129</td>
-                <td>small,medium,large</td>
-                <td>Men</td>
-                <td>Shirts</td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-                <td>
-                  <Delete/>
-                  <Visibility/>
-                  <Edit/>
-                </td>
-              </tr>
+
+              {products? products.map((item:any,i)=>(
+                   <tr className={styles.tr} key={i}>
+                  <td> <Link href={`/admin/products/${item._id}`} >{item._id.slice(0,6)}</Link></td>
+                   <td >{item.title.slice(0,15)}</td>
+                   <td >{item.price}</td>
+                   <td >hey</td>
+                   <td >{item.category}</td>
+                   <td >{item.subCategory}</td>
+                    
+                   <td>
+                     <Delete className={styles.actionDelete}/>
+                     <Visibility className={styles.actionView}/>
+                     <Edit className={styles.actionEdit}/>
+                   </td>
+                   <td>
+                   <Delete className={styles.actionDelete}/>
+                     <Visibility className={styles.actionView}/>
+                     <Edit className={styles.actionEdit}/>
+                   </td>
+                 </tr>
+
+              )):<div>Add Some Products</div>}
+           
+              
             </tbody>
           </table>
         </div>
