@@ -19,22 +19,7 @@ export default function Category({ params }: { params: { category: string } }) {
       id:3,
       title:"Jackets",
       img:"/img/men_jacket.jpg"
-     },
-     {
-      id:4,
-      title:"Shoes",
-      img:"/img/men_shoes.jpg"
-     },
-     {
-      id:5,
-      title:"SkinCare",
-      img:"/img/men_skincare.jpg"
-     },
-     {
-      id:6,
-      title:"Formals",
-      img:"/img/men_formals.jpg"
-     },
+     } 
   ]
   const  womenLinks=[
      {
@@ -51,22 +36,7 @@ export default function Category({ params }: { params: { category: string } }) {
       id:3,
       title:"Jackets",
       img:"/img/women_jacket.jpg"
-     },
-     {
-      id:4,
-      title:"Shoes",
-      img:"/img/women_shoes.jpg"
-     },
-     {
-      id:5,
-      title:"SkinCare",
-      img:"/img/women_skin.jpg"
-     },
-     {
-      id:6,
-      title:"Formals",
-      img:"/img/women_formals.jpg"
-     },
+     } 
   ]
   const kidsLinks=[
      {
@@ -84,21 +54,7 @@ export default function Category({ params }: { params: { category: string } }) {
       title:"Jackets",
       img:"/img/men_jacket.jpg"
      },
-     {
-      id:4,
-      title:"Shoes",
-      img:"/img/men_shoes.jpg"
-     },
-     {
-      id:5,
-      title:"SkinCare",
-      img:"/img/women_skin.jpg"
-     },
-     {
-      id:6,
-      title:"Formals",
-      img:"/img/men_formals.jpg"
-     },
+      
   ]
   return (
     <div className={styles.category}>

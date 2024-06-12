@@ -1,0 +1,106 @@
+
+.login{
+    width: 100%;
+    height:calc(100vh - 56px);
+    background-color: #FFFFED;
+}
+.container{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    display: flex
+    
+}
+.left{
+    width: 50%;
+    
+    display: flex;
+    justify-content: center;
+    
+    flex-direction: column;
+}
+.heading{
+    padding-left: 20px;
+    color: var(--primary)
+}
+.description{
+    padding-left: 20px;
+    font-size: 1.7rem;
+}
+.right{
+    width: 50%;
+     display: flex;
+    align-items: center;
+}
+.main{
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 80%;
+    margin: auto;
+    color: var(--primary);
+    background-color:var(--secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.main input{
+font-size: 17px;
+    width: 90%;
+    padding: 10px;
+    height: 50px;
+    margin: auto;
+    border:.5px solid var(--primary);
+    border-radius: 5px;
+    outline: none;
+}
+.loginBtn{
+   
+    width: 90%;
+    padding: 10px;
+    height: 50px;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--secondary);
+    background-color:var(--primary);
+
+}
+
+.forgot{
+    
+    text-align: center;
+    width: 50%;
+    margin:5px auto;
+    font-size: 17px;
+    color: #FFFFED;
+}
+ .line{
+    width: 80%;
+    margin: auto;
+ }
+.registerBtn{
+    width: 50%;
+    padding: 10px;
+    height: 50px;
+    margin: auto;
+    border:1px solid #FFFFED;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    color: var(--secondary);
+    background-color:var(--primary);
+    transition: all .5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.registerBtn:hover{
+    color: var(--primary);
+    background-color:var(--secondary);
+}

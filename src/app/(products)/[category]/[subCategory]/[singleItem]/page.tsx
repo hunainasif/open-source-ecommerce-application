@@ -4,6 +4,8 @@ import styles from "./singleItem.module.css"
 import { ArrowBackIos, ArrowForwardIos, CheckCircleOutline, CurrencyPound, FavoriteBorder, ShoppingCart  } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '@/toolkit/cartSlice'
 export default function SingleItem({params}:{params:{category:string,subCategory:string,singleItem:string}}) {
   // {params.category}
   // {params.subCategory}
@@ -11,6 +13,7 @@ export default function SingleItem({params}:{params:{category:string,subCategory
 
   const [productItem, setProductItem] = useState<any>("");
 
+ const dispatch=useDispatch()
   // const sliderImags=[
   //   "/img/men_bottom.jpg",
   //   "/img/men_jacket.jpg",
@@ -37,6 +40,9 @@ export default function SingleItem({params}:{params:{category:string,subCategory
 
   const [index,setIndex]=useState(1)
 
+  const [size,setSize]=useState("")
+  console.log(size)
+
   const [slideNumber,setSlideNumber]=useState(0)
   // console.log(sliderImags)
 
@@ -48,6 +54,11 @@ export default function SingleItem({params}:{params:{category:string,subCategory
       setSlideNumber((prev) =>prev < 2 ? prev +1 :prev);
     }
   };
+
+
+  const handleCart=()=>{
+    dispatch(addToCart({...productItem,index,size}))
+  }
   return (
     <div className={styles.singleItem}>
       <div className={styles.container}>
@@ -99,9 +110,9 @@ export default function SingleItem({params}:{params:{category:string,subCategory
               </div>
 
               <div className={styles.sizes}>
-                <select className={styles.selectSize} name="sizes" id="">
+                <select className={styles.selectSize} name="sizes" id="" onChange={(e)=>{setSize(e.target.value)}} >
                   {productItem.sizes?.map((item:any,i:any)=>(
-                  <option className={styles.optionSize} value={productItem.sizes.item} key={i}>{item.toUpperCase()}</option>
+                  <option onChange={()=>{setSize(item)}} className={styles.optionSize} value={productItem.sizes.item} key={i}>{item.toUpperCase()}</option>
                   ))}
                   
                 </select>
@@ -118,12 +129,12 @@ export default function SingleItem({params}:{params:{category:string,subCategory
 
              {/* bottom of the RIght That COntain Checkout Buttons */}
              <div className={styles.bottom}>
-               <Link href="/cart" className={styles.cart}>
+               <div onClick={handleCart} className={styles.cart}>
                 <ShoppingCart className={styles.finalIcons}/>
                 Add To Cart
-               </Link>
+               </div>
 
-               <Link href="/checkout" className={styles.checkOut}>
+               <Link href="/cart" className={styles.checkOut}>
                 <CheckCircleOutline className={styles.finalIcons}/>
                 CheckOut
                </Link>

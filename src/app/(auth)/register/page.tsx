@@ -1,72 +1,54 @@
-import React from 'react';
-import './register.css';
+ "use client"
+ import React, { useState } from 'react'
+import styles from "./register.module.css"
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-const Register = () => {
+
+
+export default function Register() {
+  const router=useRouter()
+
+  let [credentials,setCredentials]=useState({name:"",email:"",password:""})
+
+  const handleClick=async()=>{
+
+    let res=await fetch(`/api/users/register`,{
+      method:"POST",
+      headers:{
+        "Content-type":"applicaton/json"
+      },
+      body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password})
+    })
+    let data=await res.json()
+    console.log(data)
+    if(data.success){
+      router.push("/login")
+    }
+
+  }
+
+  const handleChange=(e:any)=>{
+    setCredentials({...credentials,[e.target.name]:e.target.value})
+
+  }
+
+   
   return (
-    <div className="profile-container">
-      <h2>User Profile</h2>
-      <div className="profile-section">
-        <h3>Personal Information</h3>
-        <div className="info-item">
-          <label>Name:</label>
-          <span>[Your Name]</span>
+    <div className={styles.register}>
+       <div className={styles.container}>
+        <h1 className={styles.heading}>REGISTER YOURSELF</h1>
+        <div className={styles.main}>
+          <input onChange={handleChange}  value={credentials.name}  type="text" name="name" id=""  placeholder='Enter Your Name'/>
+          <input onChange={handleChange}  value={credentials.email}  type="email" name="email" id="" placeholder='Enter Your Email' />
+          <input onChange={handleChange}  value={credentials.password}  type="password" name="password" id="" placeholder='Enter Your Password' />
+          <button className={styles.registerBtn} onClick={handleClick} >Register</button>
+          <hr  className={styles.line}/>
+          <Link href="/login" className={styles.login}>Already have an account?</Link>
+          <span className={styles.connect}>Connect With Us</span>
+
         </div>
-        <div className="info-item">
-          <label>Email:</label>
-          <span>[Your Email]</span>
-        </div>
-        <div className="info-item">
-          <label>Phone Number:</label>
-          <span>[Your Phone Number]</span>
-        </div>
-      </div>
-
-      <div className="profile-section">
-        <h3>Account Settings</h3>
-        <button className="btn">Change Password</button>
-        <button className="btn">Update Profile</button>
-        <button className="btn">Notification Preferences</button>
-      </div>
-
-      <div className="profile-section">
-        <h3>Orders</h3>
-        <button className="btn">View Orders</button>
-        <button className="btn">Pending Orders</button>
-        <button className="btn">Order History</button>
-      </div>
-
-      <div className="profile-section">
-        <h3>Wishlist</h3>
-        <button className="btn">Wishlist</button>
-      </div>
-
-      <div className="profile-section">
-        <h3>Chat with Admin</h3>
-        <button className="btn">Live Support</button>
-        <button className="btn">Feedback & Suggestions</button>
-      </div>
-
-      <div className="profile-section">
-        <h3>Help & Support</h3>
-        <button className="btn">FAQs</button>
-        <button className="btn">Contact Us</button>
-      </div>
-
-      <div className="logout">
-        <button className="btn">Logout</button>
-      </div>
-
-      <div className="stay-connected">
-        <h3>Stay Connected</h3>
-        <div className="social-media">
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-        </div>
-      </div>
+       </div>
     </div>
-  );
+  )
 }
-
-export default Register;

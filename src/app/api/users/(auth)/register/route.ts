@@ -1,8 +1,9 @@
-import User from "@/models/User";
-import connectToDb from "@/utils/db";
-import { NextRequest, NextResponse } from "next/server";
+import User from "@/models/User"
+import { NextRequest, NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
+import connectToDb from "@/utils/db"
+
 
 
 
@@ -12,20 +13,22 @@ export const POST=async(request:NextRequest,response:NextResponse)=>{
 
         let reqBody=await request.json()
 
-        let {name,email,password}=reqBody
+        let {name,email,password}=await reqBody
 
         if(!name || !email || !password){
-            return NextResponse.json("Missing Elements",{status:401})
+            return NextResponse.json("Incomplete credentials",{status:401})
         }
 
         let user=await User.findOne({email})
+
         if(user){
-            return NextResponse.json("User with this email already exists",{status:409})
+            return NextResponse.json("User with This email Already Exits ",{status:400})
         }
 
         let salt=await bcrypt.genSalt(10)
         let hash=await bcrypt.hash(password,salt)
-          user=await User.create({
+
+        user=await User.create({
             name,
             email,
             password:hash
@@ -33,14 +36,16 @@ export const POST=async(request:NextRequest,response:NextResponse)=>{
 
         let data={
             user:{
-                id:user.id
+                id:user.id,
+                isAdmin:user.isAdmin
             }
         }
 
-        let secret:any=process.env.JWT_SEC
-        let token=jwt.sign(data,secret)
+        let sec:any=process.env.JWT_SEC
 
-        return NextResponse.json({token},{status:200})
+        let token=jwt.sign(data,sec)
+
+        return NextResponse.json({token,success:true},{status:200})
 
         
     } catch (error) {

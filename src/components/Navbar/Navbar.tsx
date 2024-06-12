@@ -1,13 +1,27 @@
  "use client"
  import { Menu, ShoppingCart, SupervisedUserCircle } from '@mui/icons-material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Badge from '@mui/material/Badge';
 import styles from "./navbar.module.css"
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+
+import type { RootState } from "@/toolkit/store"
+import { AuthContext } from '@/context/authContext';
 
  export default function Navbar() {
   const [openMenu,setMenu]=useState(true)
-  const session=true;
+
+  const cart=useSelector((state: RootState)=>state.cart.cartQuantity)
+  console.log(cart)
+  let {user}=useContext(AuthContext)
+  let session
+  if(user){
+    session=true
+  }
+  else{
+    session=false
+  }
    return (
      <div className={styles.navBar}>
       <div className={styles.container}>
@@ -27,7 +41,7 @@ import Link from 'next/link';
           </div>
           <div className={styles.operations}>
             <Link  href={"/cart"} className={styles.cart}>
-            <Badge badgeContent={4} color="primary">
+            <Badge badgeContent={cart} color="primary">
                <ShoppingCart className={styles.shoppingIcon}/>
             </Badge>
             </Link>
