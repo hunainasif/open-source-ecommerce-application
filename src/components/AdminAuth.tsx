@@ -13,10 +13,6 @@ export default function AdminAuth({children}:any) {
          if(user && user.isAdmin){
             router.push("/admin/products")
          }
-         else if(user && !user.isAdmin){
-            router.push("/cart")
-         }
-        
        
     }, [user,router]);
   return (

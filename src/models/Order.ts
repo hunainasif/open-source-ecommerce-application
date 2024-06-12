@@ -19,7 +19,7 @@ const OrderSchema=new mongoose.Schema({
                 type:String,
                 required:true
             },
-            quantity:{
+             quantity:{
                 type:Number,
                 required:true
             }
@@ -38,6 +38,9 @@ const OrderSchema=new mongoose.Schema({
         type: String,
         enum: ['Cash On Delivery', 'Paid'],
         default: 'Cash On Delivery'
+      },
+      intent_id:{
+        type:String
       },
     shippingAddress: {
         street: String,

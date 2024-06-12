@@ -1,20 +1,51 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from  "./cart.module.css"
 import { Delete, Favorite, Note, Shop } from '@mui/icons-material'
 import Link from 'next/link'
 import type { RootState } from "@/toolkit/store"
 import { useDispatch, useSelector } from 'react-redux'
 import { removeProduct } from '@/toolkit/cartSlice'
+import { AuthContext } from '@/context/authContext'
+import { useRouter } from 'next/navigation'
   
 export default function Cart() {
+  let router=useRouter()
 
   const cart=useSelector((state:RootState)=>state.cart)
 
+  console.log(cart.products)
+
   const dispatch=useDispatch()
+
+  let {user}=useContext(AuthContext)
 
   const handleDelete=(productId:any)=>{
     dispatch(removeProduct(productId))
+  }
+
+  const handleClick=async()=>{
+    if(!user){
+      router.push("/login")
+    }
+    else{
+      let res=await fetch(`/api/orders`,{
+        method:"POST",
+        headers:{
+          "Content-type":"application/json"
+        },
+        body:JSON.stringify({
+          user:user.id,
+          products:cart.products,
+          totalAmount:cart.totalPrice,
+          
+        })
+      })
+      let data=await res.json()
+      console.log(data)
+      router.push("/")
+    }
+    
   }
   
 
@@ -57,7 +88,7 @@ export default function Cart() {
             <div className={styles.itemCenterRight}>
               <div className={styles.quantity}>
                 <button className={styles.quantityButton} >-</button>
-                <span className={styles.itemQuantity}>{item.index}</span>
+                <span className={styles.itemQuantity}>{item.quantity}</span>
                 <button className={styles.quantityButton}>+</button>
               </div>
             </div>
@@ -97,7 +128,7 @@ export default function Cart() {
             </div>
           </div>
           <div className={styles.rightBottom}>
-            <Link href="/checkout" className={styles.checkOutButton}>Proceed To Checkout</Link>
+            <button   className={styles.checkOutButton} onClick={handleClick}>Proceed To Checkout</button>
           </div>
         </div>
         </div>

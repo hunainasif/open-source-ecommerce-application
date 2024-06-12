@@ -38,7 +38,7 @@ export default function SingleItem({params}:{params:{category:string,subCategory
   },[params.singleItem])
     // console.log(productItem)
 
-  const [index,setIndex]=useState(1)
+  const [quantity,setQuantity]=useState(1)
 
   const [size,setSize]=useState("")
   console.log(size)
@@ -57,7 +57,7 @@ export default function SingleItem({params}:{params:{category:string,subCategory
 
 
   const handleCart=()=>{
-    dispatch(addToCart({...productItem,index,size}))
+    dispatch(addToCart({...productItem,quantity,size}))
   }
   return (
     <div className={styles.singleItem}>
@@ -74,7 +74,7 @@ export default function SingleItem({params}:{params:{category:string,subCategory
           <div  className={styles.imageContainer}
             style={{ transform: `translateX(${-100 * slideNumber}%)` }}
             key={i}>
-            <img src={`/uploads/${item}`} alt="" className={styles.img} />
+            <img src={`/uploads/${item}`} alt="picture" className={styles.img} />
           </div>
         ))}
             </div>
@@ -118,10 +118,10 @@ export default function SingleItem({params}:{params:{category:string,subCategory
                 </select>
               </div>
               <div className={styles.quantity}>
-              <button className={styles.quantityBtn} onClick={() => { setIndex(prev => prev !== 1 ? prev - 1 : prev) }}> - </button>
+              <button className={styles.quantityBtn} onClick={() => { setQuantity(prev => prev !== 1 ? prev - 1 : prev) }}> - </button>
 
-                {index}
-                <button className={styles.quantityBtn} onClick={()=>{setIndex(prev=>prev+1)}}>+</button>
+                {quantity}
+                <button className={styles.quantityBtn} onClick={()=>{setQuantity(prev=>prev+1)}}>+</button>
               </div>
 
               

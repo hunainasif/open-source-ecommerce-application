@@ -8,11 +8,18 @@ import { useSelector } from 'react-redux';
 
 import type { RootState } from "@/toolkit/store"
 import { AuthContext } from '@/context/authContext';
+import { useRouter } from 'next/navigation';
 
  export default function Navbar() {
+
   const [openMenu,setMenu]=useState(true)
 
-  const [openList,setOpenList]=useState(false)
+
+  let router=useRouter()
+  const handleClick=()=>{
+    localStorage.removeItem("user")
+    router.push("/")
+  }
 
   const cart=useSelector((state: RootState)=>state.cart.cartQuantity)
   console.log(cart)
@@ -53,7 +60,7 @@ import { AuthContext } from '@/context/authContext';
                 <Link href={"/register"} className={styles.btnRegister}>REGISTER</Link>
               </div>:
               <div className={styles.user}>
-                 <button className={styles.logOut}>LOGOUT</button>
+                 <button className={styles.logOut} onClick={handleClick}>LOGOUT</button>
               </div>}
             </div>
           </div>
