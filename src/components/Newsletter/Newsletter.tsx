@@ -1,28 +1,24 @@
 import { Send } from '@mui/icons-material'
 import React from 'react'
 import styles from "./newsletter.module.css"
-
-export default function Newsletter() {
+ export default function NewsLetter() {
   return (
-     <div className={styles.newsLetter}>
-      <div className={styles.container}>
-        <div className={styles.top}>
-
-        <h1 className={styles.heading}>NEWSLETTER</h1>
-        <p className={styles.description}>Get timely updates from your favourite products.</p>
-        </div>
-        <div className={styles.bottom}>
-          <div className={styles.inputContainer}>
-            <div className={styles.input}>
-              <input type="email" name="" placeholder='Your Email' id="" className={styles.inputBox} />
+    <div className={styles.newsLetter}>
+        <div className={styles.container}>
+            <div className={styles.top}>
+                <h1 className={styles.heading}>NEWSLETTER SIGN UP</h1>
             </div>
-            <div className={styles.btn}>
-              <Send className={styles.sendIcon}/>
+            <div className={styles.center}>
+                <p className={styles.description}>Lorem ipsum dolor sit amet consectetur, adipisicin  Repellendus blanditiis distinctio et, odit quam vel sunt amet  necessitatibus?</p>
             </div>
-          </div>
+            <div className={styles.bottom}>
+                <input type="email" name="newsLetter" id="" placeholder='Enter your email address' className={styles.emailBox}/>
+                <div className={styles.send}>
+                    <Send style={{fontSize:"40px"}}/>
+                </div>
+            </div>
         </div>
-         
-      </div>
-     </div>
+      
+    </div>
   )
 }

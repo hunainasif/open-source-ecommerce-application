@@ -116,6 +116,10 @@
     align-items: center;
     
  }
+ .logOut{
+   background-color: var(--primary);
+   color: var(--secondary);
+ }
  @media(min-width:480px) and (max-width:768px){
     .secondary{
         height: 80vh;

@@ -1,6 +1,6 @@
 "use client"
 import { AddShoppingCart,  CheckOutlined,  CurrencyPound,  FavoriteBorder } from '@mui/icons-material'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from "./subCategory.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ export default function SubCategory({params}:{params:{category:string,subCategor
 const [products,setProducts]=useState([])
 
 
-useEffect(()=>{
+useLayoutEffect(()=>{
 
   const getProducts=async()=>{
     let res=await fetch(`/api/products?category=${params.category}&subCategory=${params.subCategory}`)

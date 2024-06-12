@@ -1,10 +1,8 @@
 "use client"
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useLayoutEffect, useState } from "react";
 import jwt, { jwtDecode } from "jwt-decode"
 import { useRouter } from 'next/navigation'
  
-
-
 
 export const AuthContext=createContext()
 
@@ -18,14 +16,13 @@ export const AuthContextProvider=({children})=>{
     let [user,setUser]=useState(null)
     console.log(user)
 
-    useEffect(()=>{
-        let storedUser=localStorage.getItem("user")
+    useLayoutEffect(()=>{
+       setUser(localStorage.getItem("user"))
 
-        if(storedUser){
-            setUser(storedUser)
-        }
+    },[])
 
-    },[user])
+
+    // login Function
 
     const login=async(credentials)=>{
         console.log(credentials.email,credentials.password)
@@ -42,11 +39,16 @@ export const AuthContextProvider=({children})=>{
 
             console.log(res)
 
+            // after Login Process Decode the JWT token to get User information
+
             try {
                 let decodedToken=jwtDecode(res.token)
+                setUser(decodedToken.user)
                 console.log(decodedToken)
+
+                // after decode the token save the user in localStorage
                 localStorage.setItem("user",JSON.stringify(decodedToken.user))
-                setUser(localStorage.getItem("user"))
+                // redirection based on user's Roles
                 if(res.success && decodedToken.user.isAdmin){
                     router.push("/admin/products")
                     

@@ -12,6 +12,8 @@ import { AuthContext } from '@/context/authContext';
  export default function Navbar() {
   const [openMenu,setMenu]=useState(true)
 
+  const [openList,setOpenList]=useState(false)
+
   const cart=useSelector((state: RootState)=>state.cart.cartQuantity)
   console.log(cart)
   let {user}=useContext(AuthContext)
@@ -51,7 +53,7 @@ import { AuthContext } from '@/context/authContext';
                 <Link href={"/register"} className={styles.btnRegister}>REGISTER</Link>
               </div>:
               <div className={styles.user}>
-                <SupervisedUserCircle className={styles.userIcon}/>
+                 <button className={styles.logOut}>LOGOUT</button>
               </div>}
             </div>
           </div>
