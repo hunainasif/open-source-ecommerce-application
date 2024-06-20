@@ -59,7 +59,7 @@ export default function Orders() {
               <Link href={`/admin/orders/${item._id}`}>
               <td style={{cursor:"pointer"}}>{item._id.slice(0,8)}</td>
               </Link>
-              <td style={{cursor:"pointer"}}>{item.user.slice(0,8)}</td>
+              <td style={{cursor:"pointer"}}>{item.user}</td>
             
               <td>{item.totalAmount}</td>
               <td>{item.paymentStatus}</td>

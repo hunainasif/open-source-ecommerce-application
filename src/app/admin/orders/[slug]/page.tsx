@@ -1,10 +1,34 @@
-import React from 'react'
+
+"use client"
+import React, { useEffect, useState } from 'react'
 import styles from "./singleOrder.module.css"
 import Link from 'next/link'
  
 
 
 export default function SingleOrder({ params }: { params: { slug: string } }) {
+   let [order,setOrder]=useState("")
+   let [product,setProduct]=useState("")
+   let {slug}=params
+
+    useEffect(()=>{
+      let getSingleOrder=async()=>{
+        let res=await fetch(`/api/orders/${slug}`)
+
+        let data=await res.json()
+
+      console.log(data)
+      setOrder(data.order)
+      }
+
+      getSingleOrder()
+
+    },[slug])
+
+   
+
+
+
   // {/* <h1>{params.slug}</h1> */}
   return (
     <div className={styles.singleOrder}>
@@ -15,25 +39,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
         {/* Here is the Left Side of the Single Order page which contains the array of Products */}
         <div className={styles.left}>
           <h1 className={styles.productHeading}>Products</h1>
-          <Link href={`/admin/products/${123}`} className={styles.singleProduct}>
-            <div className={styles.productLeft}>
-              <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
-              </div>
-            </div>
-            <div className={styles.productCenter}>
-              <span className={styles.productId}>Id:090078601</span>
-              <span className={styles.title}>Hey I am the Product </span>
-              <span className={styles.size}>size:Medium</span>
-            </div>
-            <div className={styles.productRight}>
-              <span className={styles.quantity}>2</span>
-              <span className={styles.multiply}>X</span>
-              <span className={styles.productPrice}>$120</span>
-              <span className={styles.equal}>=</span>
-              <span className={styles.totalPrice}>$240</span>
-            </div>
-          </Link>
+          
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
