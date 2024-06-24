@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./singleUser.module.css"
 import { AccountCircle } from '@mui/icons-material'
+import Image from "next/image"
 export default function SingleUser() {
 
   let imga=false
@@ -12,7 +13,7 @@ export default function SingleUser() {
 
         <h1 className={styles.heading}>User Information</h1>
         <div className={styles.imgContainer}>
-        {imga?  <img src="/img/men_bottom.jpg" className={styles.img} alt="" /> :<AccountCircle className={styles.profileIcon}/>}
+          <Image src="/img/men_bottom.jpg" className={styles.img} alt="" /> :<AccountCircle className={styles.profileIcon}/> 
         </div>
         </div>
         

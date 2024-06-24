@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeProduct } from '@/toolkit/cartSlice'
 import { AuthContext } from '@/context/authContext'
 import { useRouter } from 'next/navigation'
-  
+  import Image from "next/image"
 export default function Cart() {
   let router=useRouter()
 
@@ -61,7 +61,7 @@ export default function Cart() {
           {cart.products.length >0 ? cart.products.map((item:any,i:any)=>(
             <div className={styles.singleItem} key={i}>
             <div className={styles.itemLeft}>
-              <img className={styles.imgItem} src={`/uploads/${item.images[0]}`} alt="" />
+              <Image className={styles.imgItem} src={`/uploads/${item.images[0]}`} alt="" />
             </div>
             <div className={styles.itemCenter}>
               

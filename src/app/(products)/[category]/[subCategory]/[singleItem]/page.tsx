@@ -74,7 +74,7 @@ export default function SingleItem({params}:{params:{category:string,subCategory
           <div  className={styles.imageContainer}
             style={{ transform: `translateX(${-100 * slideNumber}%)` }}
             key={i}>
-            <img src={`/uploads/${item}`} alt="picture" className={styles.img} />
+            <Image src={`/uploads/${item}`} alt="picture" className={styles.img} />
           </div>
         ))}
             </div>
