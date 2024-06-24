@@ -1,10 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// next.config.mjs
 
-export default nextConfig;
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    // Your Next.js configuration options here
     eslint: {
       ignoreDuringBuilds: true,
     },
   };
+  
+  export default nextConfig;
   
