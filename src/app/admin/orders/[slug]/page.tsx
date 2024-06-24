@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./singleOrder.module.css"
 import Link from 'next/link'
+import Image from "next/image"
  
 
 
@@ -43,7 +44,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -61,7 +62,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -79,7 +80,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -97,7 +98,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -115,7 +116,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -133,7 +134,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -151,7 +152,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -169,7 +170,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -187,7 +188,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -205,7 +206,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -223,7 +224,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>
@@ -241,7 +242,7 @@ export default function SingleOrder({ params }: { params: { slug: string } }) {
           <div className={styles.singleProduct}>
             <div className={styles.productLeft}>
               <div className={styles.imgContainer}>
-                <img src="/img/women_bottom.jpg" alt="" className={styles.image} />
+                <Image src="/img/women_bottom.jpg" alt="" className={styles.image} />
               </div>
             </div>
             <div className={styles.productCenter}>

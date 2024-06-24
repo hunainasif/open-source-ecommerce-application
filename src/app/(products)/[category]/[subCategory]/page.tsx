@@ -42,7 +42,7 @@ useLayoutEffect(()=>{
 
  <div className={styles.top}>
 
-   <img src={`/uploads/${item.images[1]}`} alt="Product Image"  className={styles.img}/>
+   <Image src={`/uploads/${item.images[1]}`} alt="Product Image"  className={styles.img}/>
    </div>          
  <div className={styles.bottom}>
    

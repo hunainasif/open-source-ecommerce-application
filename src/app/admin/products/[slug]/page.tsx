@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import styles from "./adminSingleProduct.module.css"
-
+import Image from "next/image"
 interface ProductItem {
   title: string | null;
   description: string | null;
@@ -108,17 +108,17 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
         </div>
         <div className={styles.form_control}>
           <div className={styles.imgContainer}>
-            <img
+            <Image
               className={styles.img}
               src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt=""
             />
-            <img
+            <Image
               className={styles.img}
               src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt=""
             />
-            <img
+            <Image
               className={styles.img}
               src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt=""
