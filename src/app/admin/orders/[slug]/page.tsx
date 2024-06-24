@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 
 export default function SingleOrder({ params }: { params: { slug: string } }) {
-   let [order,setOrder]=useState("")
+   let [order,setOrder]=useState(null)
    let [product,setProduct]=useState("")
    let {slug}=params
 
