@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import styles from "./adminSingleProduct.module.css"
 
 interface ProductItem {
-  title: string;
-  description: string;
+  title: string | null;
+  description: string | null;
   // Add other properties as necessary
 }
 
@@ -17,7 +17,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await fetch(`/api/products/${"66642226e0a776e6ed307152"}`, {
+        const response = await fetch(`/api/products/${productId}`, {
           method: "GET"
         });
 
@@ -30,7 +30,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
       }
     };
     getProduct();
-  }, []);
+  }, [productId]);
 
   if (!productItem) {
     return <div>Loading...</div>; // Render a loading state or spinner
@@ -46,7 +46,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
             className={styles.inputElements}
             type="text"
             name=""
-            value={productItem.title}
+            value={productItem.title ?? ''}
             id=""
           />
         </div>
@@ -55,7 +55,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
           <textarea
             className={styles.inputElements}
             name=""
-            value={productItem.description}
+            value={productItem.description ?? ''}
             id=""
           ></textarea>
         </div>
