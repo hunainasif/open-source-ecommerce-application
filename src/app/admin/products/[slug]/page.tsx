@@ -2,59 +2,74 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./adminSingleProduct.module.css"
 
+interface ProductItem {
+  title: string;
+  description: string;
+  // Add other properties as necessary
+}
 
+export default function SingleProduct({ params }: { params: { slug: string } }) {
+  const [productItem, setProductItem] = useState<ProductItem | null>(null); // Initialize as null
 
-export default function SingleProduct({params}:{params:{slug:string}}) {
+  const productId = params.slug;
+  console.log(productId);
 
-
-  let [productItem,setProductItem]=useState("")
-
-  let productId=params.slug
-  console.log(productId)
-
-  useEffect(()=>{
-
-    let getProduct=async()=>{
+  useEffect(() => {
+    const getProduct = async () => {
       try {
-        let response=await fetch(`/api/products/${"66642226e0a776e6ed307152"}`,{
-          "method":"GET"
-        })
+        const response = await fetch(`/api/products/${"66642226e0a776e6ed307152"}`, {
+          method: "GET"
+        });
 
-        let data=await response.json()
+        const data = await response.json();
 
-        setProductItem(data.product)
-        console.log(data)
+        setProductItem(data.product);
+        console.log(data);
       } catch (error) {
-        throw new Error("Error in admin Getting Single Product")
+        throw new Error("Error in admin Getting Single Product");
       }
-    
-    } 
-    getProduct()
+    };
+    getProduct();
+  }, []);
 
-  },[])
+  if (!productItem) {
+    return <div>Loading...</div>; // Render a loading state or spinner
+  }
+
   return (
     <div className={styles.adminSingleProduct}>
       <h1 className={styles.mainHeading}>Product Information</h1>
-       <div className={styles.form}>
+      <div className={styles.form}>
         <div className={styles.form_control}>
           <label htmlFor="">Title</label>
-          <input className={styles.inputElements} type="text" name="" value={productItem.title} id="" />
+          <input
+            className={styles.inputElements}
+            type="text"
+            name=""
+            value={productItem.title}
+            id=""
+          />
         </div>
         <div className={styles.form_control}>
           <label htmlFor="">Description</label>
-           <textarea className={styles.inputElements} name="" value={productItem.description} id=""></textarea>
+          <textarea
+            className={styles.inputElements}
+            name=""
+            value={productItem.description}
+            id=""
+          ></textarea>
         </div>
         <div className={styles.form_control}>
           <label htmlFor="">Category</label>
-          <select name="" id="" >
+          <select name="" id="">
             <option value="men" selected>Men</option>
             <option value="women">Women</option>
             <option value="kids">Kids</option>
           </select>
         </div>
         <div className={styles.form_control}>
-        <label htmlFor="">SubCategory</label>
-          <select name="" id="" >
+          <label htmlFor="">SubCategory</label>
+          <select name="" id="">
             <option value="shirts" selected>Shirts</option>
             <option value="bottoms">Bottoms</option>
             <option value="formals">Formals</option>
@@ -65,9 +80,15 @@ export default function SingleProduct({params}:{params:{slug:string}}) {
         </div>
         <div className={styles.form_control}>
           <label htmlFor="">Price</label>
-          <input className={styles.inputElements} type="number" name="" value="12" id="" />
+          <input
+            className={styles.inputElements}
+            type="number"
+            name=""
+            value="12"
+            id=""
+          />
         </div>
-        <div style={{display:"flex",gap:"6px"}} className={styles.form_control}>
+        <div style={{ display: "flex", gap: "6px" }} className={styles.form_control}>
           <label htmlFor="">Variants/Sizes</label>
 
           <input className={styles.checkItem} type="checkbox" name="" id="small" />
@@ -87,14 +108,26 @@ export default function SingleProduct({params}:{params:{slug:string}}) {
         </div>
         <div className={styles.form_control}>
           <div className={styles.imgContainer}>
-            <img className={styles.img} src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-            <img className={styles.img} src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-            <img className={styles.img} src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+            <img
+              className={styles.img}
+              src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+            <img
+              className={styles.img}
+              src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+            <img
+              className={styles.img}
+              src="https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
           </div>
         </div>
-         <button className={styles.updateButton}>Update</button>
-         <button className={styles.deleteButton}>Delete</button>
-       </div>
+        <button className={styles.updateButton}>Update</button>
+        <button className={styles.deleteButton}>Delete</button>
+      </div>
     </div>
-  )
+  );
 }
