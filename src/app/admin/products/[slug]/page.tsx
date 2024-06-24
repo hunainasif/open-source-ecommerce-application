@@ -23,7 +23,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
 
         const data = await response.json();
 
-        setProductItem(data.product);
+        setProductItem(data.product as ProductItem); // Type assertion
         console.log(data);
       } catch (error) {
         throw new Error("Error in admin Getting Single Product");
@@ -46,7 +46,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
             className={styles.inputElements}
             type="text"
             name=""
-            value={productItem.title ?? ''}
+            value={productItem.title ?? ""}
             id=""
           />
         </div>
@@ -55,7 +55,7 @@ export default function SingleProduct({ params }: { params: { slug: string } }) 
           <textarea
             className={styles.inputElements}
             name=""
-            value={productItem.description ?? ''}
+            value={productItem.description ?? ""}
             id=""
           ></textarea>
         </div>
